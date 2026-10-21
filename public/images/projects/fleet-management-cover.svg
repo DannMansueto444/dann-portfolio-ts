@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="cover-title cover-desc">
+  <title id="cover-title">Fleet operations dashboard illustration</title>
+  <desc id="cover-desc">An abstract charcoal dashboard with orange route lines, map pins, and monitoring panels.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#24231f" />
+      <stop offset="0.55" stop-color="#1a1a18" />
+      <stop offset="1" stop-color="#141413" />
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fe7f2d" />
+      <stop offset="1" stop-color="#ffb067" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fe7f2d" stop-opacity="0.42" />
+      <stop offset="1" stop-color="#fe7f2d" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="1" />
+    </pattern>
+    <pattern id="map-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1" />
+    </pattern>
+    <filter id="blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="15" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)" />
+  <rect width="1200" height="750" fill="url(#grid)" />
+  <circle cx="1060" cy="60" r="340" fill="url(#glow)" />
+
+  <g>
+    <rect x="64" y="64" width="1072" height="622" rx="30" fill="#1d1d1b" stroke="#3a3933" />
+    <path d="M64 94a30 30 0 0 1 30-30h1012a30 30 0 0 1 30 30v34H64z" fill="#23231f" />
+
+    <circle cx="98" cy="97" r="4.5" fill="#fe7f2d" />
+    <circle cx="114" cy="97" r="4.5" fill="#4a4941" />
+    <circle cx="130" cy="97" r="4.5" fill="#4a4941" />
+
+    <text x="158" y="103" fill="#f2f1ec" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="2">FLEET OPERATIONS</text>
+    <text x="1052" y="103" fill="#8e8d84" font-family="Segoe UI, Arial, sans-serif" font-size="12" text-anchor="end" letter-spacing="1.5">PREDICTIVE MONITORING</text>
+
+    <!-- left rail -->
+    <rect x="64" y="128" width="76" height="558" fill="#1a1a18" />
+    <rect x="94" y="160" width="16" height="16" rx="4" fill="#fe7f2d" />
+    <rect x="98" y="199" width="8" height="8" rx="2" fill="#55544c" />
+    <rect x="98" y="231" width="8" height="8" rx="2" fill="#55544c" />
+    <rect x="98" y="263" width="8" height="8" rx="2" fill="#55544c" />
+    <rect x="98" y="295" width="8" height="8" rx="2" fill="#55544c" />
+    <rect x="98" y="327" width="8" height="8" rx="2" fill="#55544c" />
+    <rect x="98" y="630" width="8" height="8" rx="2" fill="#55544c" />
+
+    <!-- map -->
+    <rect x="164" y="152" width="618" height="506" rx="20" fill="#181816" stroke="#34332e" />
+    <rect x="164" y="152" width="618" height="506" rx="20" fill="url(#map-grid)" />
+    <path d="M164 208h618" stroke="#34332e" />
+    <text x="192" y="188" fill="#a6a69d" font-family="Segoe UI, Arial, sans-serif" font-size="11" letter-spacing="1.6">ROUTE OVERVIEW</text>
+    <circle cx="726" cy="182" r="4" fill="#fe7f2d" />
+    <text x="712" y="187" fill="#8e8d84" font-family="Segoe UI, Arial, sans-serif" font-size="10" text-anchor="end" letter-spacing="1">LIVE</text>
+
+    <!-- route glow + line -->
+    <path d="M238 574 C346 574 338 430 430 444 C520 458 498 556 584 548 C664 540 626 334 700 294 C742 271 744 238 738 210" fill="none" stroke="#fe7f2d" stroke-opacity="0.18" stroke-width="18" stroke-linecap="round" filter="url(#blur)" />
+    <path d="M238 574 C346 574 338 430 430 444 C520 458 498 556 584 548 C664 540 626 334 700 294 C742 271 744 238 738 210" fill="none" stroke="url(#orange)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="10 11" />
+
+    <!-- map pins -->
+    <g>
+      <circle cx="238" cy="574" r="15" fill="#fe7f2d" fill-opacity="0.12" />
+      <circle cx="238" cy="574" r="6" fill="#fe7f2d" />
+      <circle cx="430" cy="444" r="12" fill="#fe7f2d" fill-opacity="0.1" />
+      <circle cx="430" cy="444" r="4.5" fill="#ffb067" />
+      <circle cx="584" cy="548" r="12" fill="#fe7f2d" fill-opacity="0.1" />
+      <circle cx="584" cy="548" r="4.5" fill="#ffb067" />
+      <circle cx="738" cy="210" r="17" fill="#fe7f2d" fill-opacity="0.14" />
+      <circle cx="738" cy="210" r="7" fill="#fe7f2d" />
+      <circle cx="738" cy="210" r="12" fill="none" stroke="#fe7f2d" stroke-opacity="0.5" />
+    </g>
+
+    <g fill="#2c2b27" stroke="#3d3c35">
+      <rect x="196" y="510" width="98" height="70" rx="10" />
+      <rect x="330" y="386" width="94" height="64" rx="10" />
+      <rect x="514" y="594" width="112" height="42" rx="10" />
+      <rect x="620" y="270" width="96" height="62" rx="10" />
+    </g>
+    <text x="214" y="549" fill="#77766d" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1">DEPOT A</text>
+    <text x="348" y="424" fill="#77766d" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1">ROUTE 04</text>
+
+    <!-- right panels -->
+    <rect x="808" y="152" width="298" height="156" rx="18" fill="#22221f" stroke="#36352f" />
+    <text x="834" y="186" fill="#8e8d84" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1.5">FLEET HEALTH</text>
+    <text x="1080" y="186" fill="#fe7f2d" font-family="Segoe UI, Arial, sans-serif" font-size="10" text-anchor="end" letter-spacing="1">MONITORED</text>
+    <rect x="834" y="208" width="246" height="8" rx="4" fill="#34332e" />
+    <rect x="834" y="208" width="186" height="8" rx="4" fill="url(#orange)" />
+    <rect x="834" y="234" width="246" height="8" rx="4" fill="#34332e" />
+    <rect x="834" y="234" width="132" height="8" rx="4" fill="#6b6759" />
+    <rect x="834" y="260" width="246" height="8" rx="4" fill="#34332e" />
+    <rect x="834" y="260" width="214" height="8" rx="4" fill="#6b6759" />
+
+    <rect x="808" y="326" width="298" height="156" rx="18" fill="#22221f" stroke="#36352f" />
+    <text x="834" y="360" fill="#8e8d84" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1.5">TRANSPORTATION COST</text>
+    <g>
+      <rect x="840" y="424" width="18" height="30" rx="4" fill="#4a4941" />
+      <rect x="872" y="404" width="18" height="50" rx="4" fill="#4a4941" />
+      <rect x="904" y="414" width="18" height="40" rx="4" fill="#4a4941" />
+      <rect x="936" y="386" width="18" height="68" rx="4" fill="#fe7f2d" />
+      <rect x="968" y="398" width="18" height="56" rx="4" fill="#4a4941" />
+      <rect x="1000" y="376" width="18" height="78" rx="4" fill="#6b6759" />
+      <rect x="1032" y="392" width="18" height="62" rx="4" fill="#4a4941" />
+      <rect x="1064" y="366" width="18" height="88" rx="4" fill="url(#orange)" />
+    </g>
+
+    <rect x="808" y="500" width="298" height="158" rx="18" fill="#22221f" stroke="#36352f" />
+    <text x="834" y="534" fill="#8e8d84" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1.5">NEXT TRIP</text>
+    <path d="M840 610 C886 610 884 566 926 572 C964 578 970 602 996 594 C1026 585 1022 552 1074 552" fill="none" stroke="#fe7f2d" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 8" />
+    <circle cx="840" cy="610" r="5" fill="#fe7f2d" />
+    <circle cx="1074" cy="552" r="5" fill="#ffb067" />
+    <text x="834" y="638" fill="#6f6e65" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1">ORIGIN</text>
+    <text x="1080" y="638" fill="#6f6e65" font-family="Segoe UI, Arial, sans-serif" font-size="10" text-anchor="end" letter-spacing="1">DESTINATION</text>
+  </g>
+
+  <text x="64" y="726" fill="#6f6e65" font-family="Segoe UI, Arial, sans-serif" font-size="11" letter-spacing="2.4">FLEET &amp; TRANSPORTATION MANAGEMENT</text>
+  <text x="1136" y="726" fill="#6f6e65" font-family="Segoe UI, Arial, sans-serif" font-size="11" text-anchor="end" letter-spacing="2.4">CAPSTONE PROJECT</text>
+</svg>
