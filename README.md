@@ -63,6 +63,28 @@ npm run preview
 npm run lint
 ```
 
+### Blank page?
+
+The site must be served over HTTP. Do not open `index.html` or `dist/index.html` by double-clicking the file, and do not serve the project root with a plain static file server:
+
+- `index.html` points at `/src/main.tsx`, which only works through the Vite dev server.
+- `dist/index.html` references built assets from the server root, and browsers block ES module scripts loaded from `file://`, so the page stays blank.
+
+Use one of these instead:
+
+```bash
+npm run dev      # development, usually http://localhost:5173
+npm run build    # then
+npm run preview  # production preview, usually http://localhost:4173
+```
+
+If the page is still blank after switching servers or branches, hard-refresh with `Ctrl+Shift+R`. The intro is intentionally skipped when the operating system has "reduce motion" enabled, and it only plays once per tab session; to replay it, run this in the browser console:
+
+```js
+sessionStorage.removeItem('dann-portfolio-intro-seen-v1')
+location.reload()
+```
+
 ## Project structure
 
 ```text
