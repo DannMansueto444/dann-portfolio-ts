@@ -16,6 +16,7 @@ A frontend-only developer portfolio built with React, TypeScript, Vite, and Tail
 - Responsive single-page layout with Home, About, Skills, Projects, Education, and Contact sections
 - Sticky navigation with active-section tracking and an accessible mobile menu
 - Persisted dark/light theme toggle, with dark as the default
+- One-time animated intro that slides away to reveal the site
 - Reusable UI components and typed content data
 - Downloadable résumé and real `mailto:` contact link
 - Scroll-reveal motion that respects `prefers-reduced-motion`
@@ -73,6 +74,7 @@ src/
     layout/
       Container.tsx        Shared page width and padding
       Footer.tsx
+      Intro.tsx            Animated first-visit intro overlay
       Navbar.tsx
     ui/
       Button.tsx           Link/button variants
@@ -91,6 +93,7 @@ src/
     useActiveSection.ts
     useTheme.ts
   lib/
+    intro.ts             Session and reduced-motion intro checks
     utils.ts
   sections/
     Hero.tsx
@@ -137,6 +140,33 @@ The current social URLs are:
 - Instagram: `https://www.instagram.com/_hyodannski/`
 - Facebook: `https://www.facebook.com/francisdaniel.d.mansueto/`
 - X: `https://x.com/dannskirudw`
+
+### Intro animation
+
+The intro is a full-screen overlay with a DM monogram, name, role, and an orange progress line. It holds briefly, then slides up to reveal the page. It is not a separate route.
+
+- It plays once per browser session, tracked in `sessionStorage` under `dann-portfolio-intro-seen-v1`.
+- `Skip intro` and the `Escape` key start the exit right away. Keyboard focus starts inside the overlay, and the page behind it is inert and scroll-locked while it is visible.
+- `prefers-reduced-motion: reduce` bypasses the intro entirely.
+- After the overlay leaves, focus moves to the main landmark so keyboard users land in the page.
+
+Timing lives at the top of `src/components/layout/Intro.tsx`:
+
+```ts
+const HOLD_MS = 1650
+const EXIT_MS = 820
+```
+
+The entrance and progress animations are defined in `src/index.css` (`.intro-rise` and `.intro-progress-bar`). The session key and reduced-motion check are in `src/lib/intro.ts`.
+
+To replay it while developing, clear the key and reload:
+
+```js
+sessionStorage.removeItem('dann-portfolio-intro-seen-v1')
+location.reload()
+```
+
+Opening the site in a new tab starts a new session and shows the intro again. If you make a substantial change to the intro and want returning visitors to see it once, bump the `-v1` suffix in `src/lib/intro.ts`.
 
 ### Navigation
 
@@ -248,6 +278,7 @@ For full control, a serverless function (Netlify Functions, Vercel Functions, Cl
 - `aria-current` on the active navigation item
 - Labeled theme toggle, mobile menu, social links, and external links
 - Descriptive image alternatives
+- Intro overlay exposed as a labeled dialog with focus moved into it, a skip action, Escape support, and an automatic reduced-motion bypass
 - Scroll-reveal and entrance motion disabled or shortened under `prefers-reduced-motion`
 - Responsive layouts checked at desktop, tablet, and small mobile widths
 
