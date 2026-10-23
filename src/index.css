@@ -5,30 +5,30 @@
 /* -------------------------------------------------------------------------- */
 
 :root {
-  --background: #1a1a19;
-  --surface: #222220;
-  --surface-raised: #292926;
-  --border: #36362f;
-  --foreground: #f5f5f1;
-  --muted: #a6a69d;
-  --accent: #fe7f2d;
-  --accent-light: #ffb067;
-  --accent-text: #ffb067;
-  --accent-ink: #1a1a19;
+  --background: #0c0c0f;
+  --surface: #18181b;
+  --surface-raised: #1e1e22;
+  --border: #2a2a30;
+  --foreground: #f4f4f5;
+  --muted: #a0a0a8;
+  --accent: #f4f4f5;
+  --accent-light: #f4f4f5;
+  --accent-text: #f4f4f5;
+  --accent-ink: #0c0c0f;
   color-scheme: dark;
 }
 
 html.light {
-  --background: #f6f3ed;
-  --surface: #ffffff;
-  --surface-raised: #fbf8f2;
-  --border: #e3ddd2;
-  --foreground: #1a1a19;
-  --muted: #67645c;
-  --accent: #f47721;
-  --accent-light: #ffb067;
-  --accent-text: #b84a00;
-  --accent-ink: #1a1a19;
+  --background: #ffffff;
+  --surface: #fafafa;
+  --surface-raised: #f5f5f5;
+  --border: #e5e5e5;
+  --foreground: #0a0a0a;
+  --muted: #737373;
+  --accent: #0a0a0a;
+  --accent-light: #0a0a0a;
+  --accent-text: #0a0a0a;
+  --accent-ink: #ffffff;
   color-scheme: light;
 }
 
@@ -47,6 +47,7 @@ html.light {
 
 @theme {
   --font-sans: Geist, Inter, system-ui, sans-serif;
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -57,6 +58,7 @@ html.light {
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    background-color: var(--background);
   }
 
   body {
@@ -143,12 +145,24 @@ html.light {
 @utility text-gradient {
   background-image: linear-gradient(
     120deg,
-    var(--accent) 0%,
-    var(--accent-text) 100%
+    var(--foreground) 0%,
+    var(--muted) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Portrait                                                                  */
+/* -------------------------------------------------------------------------- */
+
+.portrait-halftone {
+  object-position: left center;
+}
+
+html:not(.light) .portrait-halftone {
+  object-position: right center;
 }
 
 /* -------------------------------------------------------------------------- */

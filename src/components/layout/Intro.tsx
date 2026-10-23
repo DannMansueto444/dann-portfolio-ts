@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight } from '../common/Icon'
 import { profile } from '../../data/profile'
 import { cn } from '../../lib/utils'
 
@@ -70,7 +70,7 @@ export function Intro({ onComplete }: IntroProps) {
 
       <div className="relative flex flex-col items-center text-center">
         <div
-          className="intro-rise flex size-16 items-center justify-center rounded-2xl bg-accent-gradient text-lg font-semibold tracking-[-0.02em] text-accent-ink shadow-[0_18px_50px_-18px_rgba(254,127,45,0.85)]"
+          className="intro-rise flex size-16 items-center justify-center rounded-2xl bg-accent text-lg font-semibold tracking-[-0.02em] text-accent-ink"
           style={{ animationDelay: '0ms' }}
         >
           {initials}

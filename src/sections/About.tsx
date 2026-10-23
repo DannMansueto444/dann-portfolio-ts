@@ -1,4 +1,4 @@
-import { ArrowUpRight, GraduationCap, Layers, Sparkles } from 'lucide-react'
+import { ArrowUpRight, GraduationCap, Layers, Sparkles } from '../components/common/Icon'
 import { Container } from '../components/layout/Container'
 import { Reveal } from '../components/ui/Reveal'
 import { SectionHeading } from '../components/ui/SectionHeading'

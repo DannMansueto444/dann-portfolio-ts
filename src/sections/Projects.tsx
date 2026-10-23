@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from '../components/common/Icon'
 import { Container } from '../components/layout/Container'
 import { BrandIcon } from '../components/common/BrandIcon'
 import { Button } from '../components/ui/Button'

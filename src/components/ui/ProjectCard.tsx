@@ -1,4 +1,4 @@
-import { ArrowUpRight, Code2 } from 'lucide-react'
+import { ArrowUpRight, Code2 } from '../common/Icon'
 import type { Project } from '../../types/project'
 import { cn } from '../../lib/utils'
 import { BrandIcon } from '../common/BrandIcon'

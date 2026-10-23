@@ -1,4 +1,4 @@
-import { Braces, Server, Wrench } from 'lucide-react'
+import { Braces, Server, Wrench } from '../common/Icon'
 import type { SkillCategory, SkillIcon } from '../../types/content'
 
 interface SkillCardProps {

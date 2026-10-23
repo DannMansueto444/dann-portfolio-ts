@@ -1,4 +1,4 @@
-import { ArrowDownRight, Download } from 'lucide-react'
+import { ArrowDownRight, Download } from '../components/common/Icon'
 import { Button } from '../components/ui/Button'
 import { Container } from '../components/layout/Container'
 import { SocialLinks } from '../components/common/SocialLinks'
@@ -35,11 +35,11 @@ export function Hero() {
 
           <h1
             id="hero-title"
-            className="hero-enter mt-6 text-[clamp(2.9rem,7.5vw,5.75rem)] font-medium leading-[0.95] tracking-[-0.065em] text-foreground"
+            className="hero-enter mt-6 font-display text-[clamp(3.5rem,8.5vw,6.5rem)] font-normal leading-[0.86] tracking-[-0.035em] text-foreground"
             style={{ animationDelay: '80ms' }}
           >
-            {profile.firstName}{' '}
-            <span className="text-gradient">{profile.lastName}</span>
+            <span className="block">{profile.firstName}</span>{' '}
+            <span className="block italic text-gradient">{profile.lastName}</span>
           </h1>
 
           <p
@@ -96,64 +96,24 @@ export function Hero() {
           className="hero-enter relative mx-auto w-full max-w-[26rem] lg:max-w-none"
           style={{ animationDelay: '220ms' }}
         >
-          <div
-            aria-hidden="true"
-            className="absolute -inset-6 -z-10 rounded-[3rem] bg-accent/10 blur-[50px]"
-          />
-
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-border bg-surface">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-linear-to-b from-accent/20 via-surface to-background"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-grid opacity-30"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute left-1/2 top-1/2 h-[75%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/25 blur-[70px]"
-            />
-
+          <div className="relative aspect-[4/5] w-full">
             {profile.photo ? (
               <img
                 src={profile.photo}
                 alt={profile.photoAlt}
-                width={617}
+                width={1158}
                 height={723}
                 fetchPriority="high"
                 decoding="async"
-                className="absolute inset-0 h-full w-full object-cover object-bottom drop-shadow-[0_24px_48px_rgba(0,0,0,0.45)]"
+                className="portrait-halftone absolute inset-0 h-full w-full object-cover"
               />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-gradient text-8xl font-medium tracking-[-0.08em]">
+                <span className="font-display text-gradient text-8xl italic tracking-[-0.04em]">
                   DM
                 </span>
               </div>
             )}
-
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent"
-            />
-
-            <span
-              aria-hidden="true"
-              className="absolute left-5 top-5 h-10 w-px bg-linear-to-b from-accent to-transparent"
-            />
-            <span
-              aria-hidden="true"
-              className="absolute left-5 top-5 h-px w-10 bg-linear-to-r from-accent to-transparent"
-            />
-            <span
-              aria-hidden="true"
-              className="absolute bottom-5 right-5 h-10 w-px bg-linear-to-t from-accent to-transparent"
-            />
-            <span
-              aria-hidden="true"
-              className="absolute bottom-5 right-5 h-px w-10 bg-linear-to-l from-accent to-transparent"
-            />
           </div>
 
           <div className="absolute -bottom-5 right-4 hidden items-center gap-3 rounded-2xl border border-border bg-background/90 px-4 py-3 backdrop-blur sm:flex lg:-right-4">

@@ -1,21 +1,21 @@
 # Dann Mansueto — Developer Portfolio
 
-A frontend-only developer portfolio built with React, TypeScript, Vite, and Tailwind CSS v4. The site presents a full-stack developer profile, skills, a capstone project, education, and contact links in a charcoal-and-orange visual system.
+A frontend-only developer portfolio built with React, TypeScript, Vite, and Tailwind CSS v4. The site presents a full-stack developer profile, skills, a capstone project, education, and contact links in a minimal black-and-white visual system.
 
 ## Stack
 
 - React 19 + TypeScript
 - Vite
 - Tailwind CSS v4 via `@tailwindcss/vite`
-- Lucide React icons
-- Google Fonts: Geist
+- Lucide React geometry rendered through a shared 1.6px line-icon wrapper
+- Google Fonts: Geist and Instrument Serif
 - No backend, database, PHP, or MySQL
 
 ## Features
 
 - Responsive single-page layout with Home, About, Skills, Projects, Education, and Contact sections
 - Sticky navigation with active-section tracking and an accessible mobile menu
-- Persisted dark/light theme toggle, with dark as the default
+- System-aware dark/light theme toggle with a persisted manual choice
 - One-time animated intro that slides away to reveal the site
 - Reusable UI components and typed content data
 - Downloadable résumé and real `mailto:` contact link
@@ -91,7 +91,8 @@ location.reload()
 src/
   components/
     common/
-      BrandIcon.tsx        Social platform SVGs
+      BrandIcon.tsx        Line-style social platform SVGs
+      Icon.tsx             Shared 1.6px interface icon wrapper
       SocialLinks.tsx      Reusable social link list
     layout/
       Container.tsx        Shared page width and padding
@@ -132,9 +133,9 @@ src/
   main.tsx
 public/
   dann-resume.pdf
-  favicon.svg
+  favicon.png
   images/
-    profile.webp
+    profile-halftone.webp
     projects/
       fleet-management-cover.svg
 ```
@@ -165,7 +166,7 @@ The current social URLs are:
 
 ### Intro animation
 
-The intro is a full-screen overlay with a DM monogram, name, role, and an orange progress line. It holds briefly, then slides up to reveal the page. It is not a separate route.
+The intro is a full-screen overlay with a DM monogram, name, role, and a hairline progress line. It holds briefly, then slides up to reveal the page. It is not a separate route.
 
 - It plays once per browser session, tracked in `sessionStorage` under `dann-portfolio-intro-seen-v1`.
 - `Skip intro` and the `Escape` key start the exit right away. Keyboard focus starts inside the overlay, and the page behind it is inert and scroll-locked while it is visible.
@@ -241,9 +242,13 @@ There is no fabricated credential or graduation claim in the current content.
 
 ### Portrait
 
-The hero image is `public/images/profile.webp`, a transparent WebP cutout. Replace it with another transparent portrait if desired.
+The hero uses one transparent, two-tone halftone portrait: `public/images/profile-halftone.webp`, displayed directly on the page in both themes. The file is a 1158×723 sprite containing the same 579×723 portrait twice: the left half is black ink for light mode, and the right half is off-white ink for dark mode. `.portrait-halftone` in `src/index.css` uses `object-position` to select the correct half from the `light` class on `<html>`.
 
-The hero expects a roughly portrait-oriented image and displays it with `object-cover` in a 4:5 frame. If the replacement has a very different aspect ratio, adjust the frame in `src/sections/Hero.tsx` and update the intrinsic `width`/`height` values. Update `photoAlt` in `src/data/profile.ts` to describe the new image.
+The portrait has no card, border, blurred background, gradient, or drop shadow. It fills the same 4:5 portrait slot with `object-cover`, so the head-to-waist framing stays consistent across themes and breakpoints. If the portrait changes, regenerate both halves from the same crop and keep the sprite dimensions aligned. Update `photoAlt` in `src/data/profile.ts` to describe the new image.
+
+### Favicon
+
+`public/favicon.png` is a 192×192 square, white-background head crop centered on the face and taken from the light-mode half of the halftone portrait. The `index.html` icon and Apple touch icon both point to it. If the portrait crop changes, regenerate the favicon from the same source and keep the face centered in the square.
 
 ### Résumé
 
@@ -261,16 +266,27 @@ If `resumeUrl` is `null`, the hero renders a disabled "Résumé coming soon" but
 
 The design tokens are in `src/index.css`:
 
-- Background base: `#1A1A19`
-- Orange accent: `#FE7F2D`
-- Accent light: `#FFB067`
-- Font stack: `Geist, Inter, system-ui, sans-serif`
+- Light background: `#FFFFFF`
+- Light foreground: `#0A0A0A`
+- Light muted text: `#737373`
+- Light border: `#E5E5E5`
+- Dark background: `#0C0C0F`
+- Dark foreground: `#F4F4F5`
+- Dark muted text: `#A0A0A8`
+- Dark border: `#2A2A30`
+- Accent: the current foreground ink (`#0A0A0A` light, `#F4F4F5` dark)
+- Body/UI font stack: `Geist, Inter, system-ui, sans-serif`
+- Display font stack: `'Instrument Serif', Georgia, 'Times New Roman', serif`
 
-Dark mode is the default. The `ThemeToggle` component toggles the `light` class on `<html>` and stores the choice in `localStorage` under `dann-portfolio-theme`. The inline script in `index.html` applies the stored choice before paint to avoid a flash.
+The site follows the operating system's color preference on a first visit, with a light fallback. Once the `ThemeToggle` is used, the choice is stored in `localStorage` under `dann-portfolio-theme` and overrides the system preference. The toggle changes the `light` class on `<html>`, and the inline script in `index.html` applies the same resolution before paint to avoid a flash.
 
-Semantic utility classes such as `bg-background`, `text-foreground`, `text-muted`, `border-border`, and `text-accent-text` read from those tokens, so changing the values in `index.css` updates the whole site.
+Semantic utility classes such as `bg-background`, `text-foreground`, `text-muted`, `border-border`, and `text-accent-text` read from those tokens, so changing the values in `index.css` updates the whole site. The design is intentionally monochrome: no orange is used in the interface, favicon, intro, or project cover.
 
-The font is loaded from Google Fonts in `index.html`. The specified fallback stack is `Geist, Inter, system-ui, sans-serif`.
+The body/UI font is Geist, loaded from Google Fonts in `index.html`, with the fallback stack `Geist, Inter, system-ui, sans-serif`. The hero name uses Instrument Serif through the `font-display` utility; its fallback stack is `'Instrument Serif', Georgia, 'Times New Roman', serif`.
+
+### Icons
+
+Interface icons live in `src/components/common/Icon.tsx`. They wrap Lucide geometry at a 1.6px stroke so every icon has the same lighter optical weight. Social marks in `src/components/common/BrandIcon.tsx` are custom open line icons sized to match. If you add an icon, import it from the shared wrapper instead of `lucide-react` directly so the stroke language stays consistent.
 
 ### Contact
 
@@ -324,7 +340,8 @@ The portfolio deliberately avoids fabricated experience, qualifications, credent
 ## Credits
 
 - React, Vite, TypeScript, and Tailwind CSS
-- Lucide React for interface icons
-- Geist typeface, served by Google Fonts
+- Lucide React for interface icon geometry, rendered at a 1.6px stroke
+- Custom open-line social icons in `src/components/common/BrandIcon.tsx`
+- Geist and Instrument Serif typefaces, served by Google Fonts
 - Portrait and résumé provided by Dann Mansueto
 - Abstract fleet dashboard cover created for this project

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, Copy, Mail } from 'lucide-react'
+import { Check, Copy, Mail } from '../components/common/Icon'
 import { Container } from '../components/layout/Container'
 import { SocialLinks } from '../components/common/SocialLinks'
 import { Button } from '../components/ui/Button'

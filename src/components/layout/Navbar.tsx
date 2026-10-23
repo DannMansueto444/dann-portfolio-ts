@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X } from '../common/Icon'
 import { Container } from './Container'
 import { ThemeToggle } from '../ui/ThemeToggle'
 import { SocialLinks } from '../common/SocialLinks'
@@ -40,7 +40,7 @@ export function Navbar() {
           aria-label="Dann Mansueto — home"
           className="group flex shrink-0 items-center gap-3 rounded-lg"
         >
-          <span className="flex size-9 items-center justify-center rounded-xl bg-accent-gradient text-[12px] font-semibold tracking-[-0.02em] text-accent-ink shadow-[0_6px_20px_-8px_rgba(254,127,45,0.8)]">
+          <span className="flex size-9 items-center justify-center rounded-xl bg-accent text-[12px] font-semibold tracking-[-0.02em] text-accent-ink">
             DM
           </span>
           <span className="hidden text-sm font-medium tracking-[-0.01em] text-foreground transition group-hover:text-accent-text sm:block">

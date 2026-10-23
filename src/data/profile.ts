@@ -16,8 +16,8 @@ export const profile: Profile = {
     "Right now, I'm expanding my knowledge of API integration, system-to-system communication, and AI integration while applying what I learn to our capstone project. My goal is to grow into a developer who can design, build, and maintain practical systems that solve real-world problems.",
   ],
   email: 'mansuetofrancisdanieldibel@gmail.com',
-  photo: '/images/profile.webp',
-  photoAlt: 'Portrait of Dann Mansueto',
+  photo: '/images/profile-halftone.webp',
+  photoAlt: 'Halftone portrait of Dann Mansueto',
   // Résumé PDF lives in public/dann-resume.pdf.
   resumeUrl: '/dann-resume.pdf',
 }

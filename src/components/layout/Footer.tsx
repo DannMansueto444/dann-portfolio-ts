@@ -1,4 +1,4 @@
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp } from '../common/Icon'
 import { Container } from './Container'
 import { SocialLinks } from '../common/SocialLinks'
 import { profile } from '../../data/profile'
