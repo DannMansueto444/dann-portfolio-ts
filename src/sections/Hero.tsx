@@ -67,18 +67,6 @@ export function Hero() {
                 aria-hidden="true"
               />
             </Button>
-
-            <Button
-              href={profile.resumeUrl ?? undefined}
-              download={hasResume ? 'Dann-Mansueto-Resume.pdf' : undefined}
-              disabled={!hasResume}
-              variant="secondary"
-              size="lg"
-              title={hasResume ? undefined : 'Résumé PDF coming soon'}
-            >
-              <Download className="size-4" aria-hidden="true" />
-              {hasResume ? 'Download résumé' : 'Résumé coming soon'}
-            </Button>
           </div>
 
           <div
